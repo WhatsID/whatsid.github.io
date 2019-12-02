@@ -97,7 +97,7 @@
               </time>
             {% endif %}
 
-            {% if theme.post_meta.updated_at.enabled && datetime_diff %}
+            {% if theme.post_meta.updated_at.enabled && datetime_diff && post.modify %}
               {% set display_updated = !theme.post_meta.updated_at.another_day || theme.post_meta.updated_at.another_day && date_diff %}
 
               {% if display_updated or !theme.post_meta.created_at %}
@@ -384,6 +384,12 @@
         {% include 'post-copyright.swig' with { post: post } %}
       </div>
     {% endif %}
+
+    <div>
+      {% if not is_index %}
+        {% include 'passage-end-tag.swig' %}
+      {% endif %}
+    </div>
 
     <footer class="post-footer">
       {% if post.tags and post.tags.length and not is_index %}
