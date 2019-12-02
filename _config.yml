@@ -81,13 +81,13 @@ deploy:
   - type: git
     repo: https://github.com/WhatsID/whatsid.github.io.git
     branch: master
-  - type: git
-    repo: https://github.com/WhatsID/whatsid.github.io.git
-    branch: develop
-    extend_dirs: /
-    ignore_hidden: false
-    ignore_pattern:
-      public: .
+  # - type: git
+  #   repo: https://github.com/WhatsID/whatsid.github.io.git
+  #   branch: develop
+  #   extend_dirs: /
+  #   ignore_hidden: false
+  #   ignore_pattern:
+  #     public: .
 ##  type: git
 ##  repository: https://github.com/WhatsID/WhatsID.github.io.git
 ##  branch: master
