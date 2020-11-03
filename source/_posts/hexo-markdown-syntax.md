@@ -5,7 +5,7 @@ modify: true
 tags:
 ---
 
-# 1.Markdown语法
+# 1 Markdown语法
 ## 1.1 标题
 ---
 Markdown支持6种级别的标题，对应html标签 h1 ~ h6
