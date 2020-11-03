@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="简单记录下Hexo的文件目录结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo文件目录结构">
+<meta property="og:url" content="http://whatsid.me/2019/08/29/hexo-directory-struct/index.html">
+<meta property="og:site_name" content="Now Or Never">
+<meta property="og:description" content="简单记录下Hexo的文件目录结构">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-03T07:35:52.953Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo文件目录结构">
+<meta name="twitter:description" content="简单记录下Hexo的文件目录结构">
+
+
+
+
+
+
+  <link rel="canonical" href="http://whatsid.me/2019/08/29/hexo-directory-struct/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Hexo文件目录结构 | Now Or Never</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Now Or Never</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://whatsid.me/2019/08/29/hexo-directory-struct/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WhatsID">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Now Or Never">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Hexo文件目录结构
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-29 15:11:35" itemprop="dateCreated datePublished" datetime="2019-08-29T15:11:35+08:00">2019-08-29</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>简单记录下Hexo的文件目录结构</p>
+<a id="more"></a>
+<h2 id="1-目录结构"><a href="#1-目录结构" class="headerlink" title="1. 目录结构"></a>1. 目录结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">├── .git</span><br><span class="line">├── .deploy_git</span><br><span class="line">├── _config.yml</span><br><span class="line">├── db.json</span><br><span class="line">├── deploy.sh</span><br><span class="line">├── node_modules</span><br><span class="line">├── package_lock.json</span><br><span class="line">├── package.json</span><br><span class="line">├── public</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">│      ├─ about</span><br><span class="line">│      ├─ audio</span><br><span class="line">│      ├─ img</span><br><span class="line">│      ├─ _drafts</span><br><span class="line">│      └─ _posts</span><br><span class="line">└─themes</span><br><span class="line">    ├─ landscape</span><br><span class="line">    └─ next</span><br><span class="line">         ├─ _config.yml</span><br><span class="line">         ├─ languages</span><br><span class="line">         ├─ layout</span><br><span class="line">         ├─ scripts</span><br><span class="line">         └─ source</span><br></pre></td></tr></table></figure>
+<h2 id="1-1-deploy-git"><a href="#1-1-deploy-git" class="headerlink" title="1.1 .deploy_git"></a>1.1 .deploy_git</h2><p>在部署到github后自动创建。</p>
+<p>此目录中的内容 = github站点中对于repository中的内容 = 最近一次上传到站点的public目录中的内容。</p>
+<p>因此，该目录的结构和 <code>public</code> 目录基本一致（不一致的情况是由于重新生成，但是没有发布站点造成，此时 <code>public</code> 内容新于 <code>.deploy_git</code> 内容）。</p>
+<h2 id="1-2-config-yml"><a href="#1-2-config-yml" class="headerlink" title="1.2 _config.yml"></a>1.2 _config.yml</h2><p>网站的配置信息文件，可以在此配置大部分的参数。具体设置参见 <a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="noopener">配置 | Hexo</a>。</p>
+<h2 id="1-3-db-json"><a href="#1-3-db-json" class="headerlink" title="1.3 db.json"></a>1.3 db.json</h2><p>执行 <code>hexo g</code> 时和 <code>public</code> 文件夹一同生成的缓存文件，用户存放生成的文章的信息。使用 <code>hexo clean</code> 命令会清除该文件。</p>
+<h2 id="1-4-deploy-sh"><a href="#1-4-deploy-sh" class="headerlink" title="1.4 deploy.sh"></a>1.4 deploy.sh</h2><p>博客部署脚本。</p>
+<h2 id="1-5-node-modules"><a href="#1-5-node-modules" class="headerlink" title="1.5 node_modules"></a>1.5 node_modules</h2><p>存放安装的Hexo扩展。</p>
+<p>Hexo 默认安装：</p>
+<ul>
+<li>hexo: 主程序</li>
+<li>hexo-deployer-git: git部署</li>
+<li>hexo-generator-archive: 存档页面生成器</li>
+<li>hexo-generator-category: 类别生成器</li>
+<li>hexo-generator-index: index生成器</li>
+<li>hexo-generator-tag: 标签生成器</li>
+<li>hexo-renderer-ejs: 进一步了解 <a href="https://github.com/tj/ejs" target="_blank" rel="noopener">EJS tj/ejs · GitHub</a></li>
+<li>hexo-renderer-stylus: 进一步了解 <a href="https://github.com/hexojs/hexo-renderer-stylus" target="_blank" rel="noopener"> Stylus GitHub - hexojs/hexo-renderer-stylus: Stylus renderer for Hexo</a></li>
+<li>hexo-renderer-marked: Markdown引擎，让你可以用markdown格式书写博客</li>
+<li>hexo-server: 服务器，让你可以本地预览博客</li>
+</ul>
+<p>在使用过程中自己安装的扩展也会在此新建目录。</p>
+<h2 id="1-6-package-lock-json"><a href="#1-6-package-lock-json" class="headerlink" title="1.6 package_lock.json"></a>1.6 package_lock.json</h2><p>记录当前系统中所安装的各项依赖的版本，当执行 <code>npm install package</code> 命令时，会在本地生成或更新该文件(只有npm 5之后才会生成)，同时也防止版本的自动更新。</p>
+<h2 id="1-7-package-json"><a href="#1-7-package-json" class="headerlink" title="1.7 package.json"></a>1.7 package.json</h2><p>初始化时自动创建。记录项目的所安装的依赖项，当node_modules文件夹被删除之后可以通过该文件中记录的依赖版本来重现安装依赖。</p>
+<h2 id="1-8-public"><a href="#1-8-public" class="headerlink" title="1.8 public"></a>1.8 public</h2><p>执行 <code>hexo g</code> 命令，Hexo程序会解析 <code>source</code> 、当前使用的theme，生成的静态网页内容目录就是 <code>piblic</code> 。执行 <code>hexo d</code> 则将该目录内容复制到 <code>.deploy_git</code> 目录。</p>
+<h2 id="1-9-scaffolds"><a href="#1-9-scaffolds" class="headerlink" title="1.9 scaffolds"></a>1.9 scaffolds</h2><p>模版文件夹。当新建文章时，Hexo 会根据 scaffold 中的模板来建立文件。更多参见 <a href="https://hexo.io/zh-cn/docs/templates.html" target="_blank" rel="noopener">模版 | Hexo</a>。</p>
+<h2 id="1-10-source"><a href="#1-10-source" class="headerlink" title="1.10 source"></a>1.10 source</h2><p>存放用户资源的地方。</p>
+<h3 id="1-10-1-posts"><a href="#1-10-1-posts" class="headerlink" title="1.10.1 _posts"></a>1.10.1 _posts</h3><p>存放博客文章的地方，其中的markdown文件、html文件、org文件等会被解析并放到 <code>public</code> 文件夹，发布到站点。</p>
+<h3 id="1-10-2-其他开头命名为-下划线-的文件-文件夹"><a href="#1-10-2-其他开头命名为-下划线-的文件-文件夹" class="headerlink" title="1.10.2 其他开头命名为 _ (下划线)的文件 / 文件夹"></a>1.10.2 其他开头命名为 _ (下划线)的文件 / 文件夹</h3><p>将会被忽略。因此可以在source目录下创建 _drafts 目录用于存放未完成的草稿，其中内容不会发布到网站。</p>
+<h3 id="1-10-3-其他开头非-的文件-文件夹"><a href="#1-10-3-其他开头非-的文件-文件夹" class="headerlink" title="1.10.3 其他开头非_的文件 / 文件夹"></a>1.10.3 其他开头非_的文件 / 文件夹</h3><p>会被拷贝到 <code>public</code> 目录并上传到站点。</p>
+<ul>
+<li>可以创建 img 目录来存放在博客引用到的图片等。</li>
+<li>要添加新的页面（例如about），执行 hexo new page PageName 命令即会在 source 中自动新建子目录 PageName 。</li>
+</ul>
+<h2 id="1-11-themes"><a href="#1-11-themes" class="headerlink" title="1.11 themes"></a>1.11 themes</h2><p>主题 文件夹。默认安装 landscape 主题，你可以安装新主题到 themes 目录，也可以自己新建主题。一个主题的基本结构如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">├── _config.yml</span><br><span class="line">├── languages</span><br><span class="line">├── layout</span><br><span class="line">├── scripts</span><br><span class="line">└── source</span><br></pre></td></tr></table></figure>
+<h3 id="1-11-1-config-yml"><a href="#1-11-1-config-yml" class="headerlink" title="1.11.1 _config.yml"></a>1.11.1 _config.yml</h3><p>主题的配置文件。</p>
+<h3 id="1-11-2-languages"><a href="#1-11-2-languages" class="headerlink" title="1.11.2 languages"></a>1.11.2 languages</h3><p>语言文件夹。根据 Hexo 目录中 _config.yml 设置的语言来选择站点以哪种语言来呈现。</p>
+<h3 id="1-11-3-layout"><a href="#1-11-3-layout" class="headerlink" title="1.11.3 layout"></a>1.11.3 layout</h3><p>存放主题的模板文件，决定了网站内容的呈现方式。Hexo 根据模板文件的扩展名来决定所使用的模板引擎，例如：</p>
+<blockquote>
+</blockquote>
+<ul>
+<li>layout.ejs - 使用 EJS</li>
+<li>layout.swig - 使用 Swig</li>
+</ul>
+<h3 id="1-11-4-scripts"><a href="#1-11-4-scripts" class="headerlink" title="1.11.4 scripts"></a>1.11.4 scripts</h3><p>脚本文件夹。在启动时，Hexo 会载入此文件夹内的 JavaScript 文件。</p>
+<h3 id="1-11-5-sources"><a href="#1-11-5-sources" class="headerlink" title="1.11.5 sources"></a>1.11.5 sources</h3><p>资源文件夹，除了模板以外的资源，例如 CSS、JavaScript 文件等，都应该放在这个文件夹中。</p>
+<p>文件或文件夹开头名称为 _（下划线）或隐藏的文件会被忽略。</p>
+<p>如果文件可以被渲染的话，会经过解析然后储存到 public 文件夹，否则会直接拷贝到 public 文件夹。</p>
+<p>以next主题为例，其 source 目录的结构如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">source</span><br><span class="line">  ├─ css</span><br><span class="line">  ├─ fonts</span><br><span class="line">  ├─ images</span><br><span class="line">  ├─ js</span><br><span class="line">  └─ lib</span><br></pre></td></tr></table></figure>
+<h4 id="1-11-5-1-css"><a href="#1-11-5-1-css" class="headerlink" title="1.11.5.1 css"></a>1.11.5.1 css</h4><p>多为styl文件，next的css目录结构如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">css</span><br><span class="line">├─ _common</span><br><span class="line">│  ├─_components</span><br><span class="line">│  ├─_outline</span><br><span class="line">│  └─ scaffolding</span><br><span class="line">├─ _custom</span><br><span class="line">├─ _mixins</span><br><span class="line">├─ _variables</span><br><span class="line">└─ main.styl</span><br></pre></td></tr></table></figure>
+<p>如果想自定义CSS，主要修改2个地方：</p>
+<ul>
+<li>_variables</li>
+<li>_custom</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;margin:100px 0 20px 0;">------------------------ 本文结束 ------------------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/21/hexo-markdown-syntax/" rel="next" title="Hexo博客的Markdown语法">
+                <i class="fa fa-chevron-left"></i> Hexo博客的Markdown语法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/06/self-driving-neimenggu/" rel="prev" title="内蒙自驾流水账">
+                内蒙自驾流水账 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">WhatsID</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-目录结构"><span class="nav-number">1.</span> <span class="nav-text">1. 目录结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-deploy-git"><span class="nav-number">2.</span> <span class="nav-text">1.1 .deploy_git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-config-yml"><span class="nav-number">3.</span> <span class="nav-text">1.2 _config.yml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-db-json"><span class="nav-number">4.</span> <span class="nav-text">1.3 db.json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-deploy-sh"><span class="nav-number">5.</span> <span class="nav-text">1.4 deploy.sh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-node-modules"><span class="nav-number">6.</span> <span class="nav-text">1.5 node_modules</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-package-lock-json"><span class="nav-number">7.</span> <span class="nav-text">1.6 package_lock.json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7-package-json"><span class="nav-number">8.</span> <span class="nav-text">1.7 package.json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8-public"><span class="nav-number">9.</span> <span class="nav-text">1.8 public</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-9-scaffolds"><span class="nav-number">10.</span> <span class="nav-text">1.9 scaffolds</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-10-source"><span class="nav-number">11.</span> <span class="nav-text">1.10 source</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-10-1-posts"><span class="nav-number">11.1.</span> <span class="nav-text">1.10.1 _posts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-10-2-其他开头命名为-下划线-的文件-文件夹"><span class="nav-number">11.2.</span> <span class="nav-text">1.10.2 其他开头命名为 _ (下划线)的文件 / 文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-10-3-其他开头非-的文件-文件夹"><span class="nav-number">11.3.</span> <span class="nav-text">1.10.3 其他开头非_的文件 / 文件夹</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-11-themes"><span class="nav-number">12.</span> <span class="nav-text">1.11 themes</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-11-1-config-yml"><span class="nav-number">12.1.</span> <span class="nav-text">1.11.1 _config.yml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-11-2-languages"><span class="nav-number">12.2.</span> <span class="nav-text">1.11.2 languages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-11-3-layout"><span class="nav-number">12.3.</span> <span class="nav-text">1.11.3 layout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-11-4-scripts"><span class="nav-number">12.4.</span> <span class="nav-text">1.11.4 scripts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-11-5-sources"><span class="nav-number">12.5.</span> <span class="nav-text">1.11.5 sources</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-11-5-1-css"><span class="nav-number">12.5.1.</span> <span class="nav-text">1.11.5.1 css</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WhatsID</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
