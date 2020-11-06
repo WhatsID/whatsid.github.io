@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="1. 反编译1.1 工具下载 apktool dex2jar jd-gui  将上述三个文件放在同一个文件夹中，例如~/Code/Decompile 1.2 环境搭建1.2.1 配置环境变量 执行 open ~/.bash_profile ，配置环境变量和alias：  1234export PATH=$&amp;#123;PATH&amp;#125;:~/Documents/Code/Decompilealia">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android反编译的一些姿势">
+<meta property="og:url" content="http://whatsid.me/2020/11/06/android-decompile/index.html">
+<meta property="og:site_name" content="Now Or Never">
+<meta property="og:description" content="1. 反编译1.1 工具下载 apktool dex2jar jd-gui  将上述三个文件放在同一个文件夹中，例如~/Code/Decompile 1.2 环境搭建1.2.1 配置环境变量 执行 open ~/.bash_profile ，配置环境变量和alias：  1234export PATH=$&amp;#123;PATH&amp;#125;:~/Documents/Code/Decompilealia">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-06T07:15:16.411Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android反编译的一些姿势">
+<meta name="twitter:description" content="1. 反编译1.1 工具下载 apktool dex2jar jd-gui  将上述三个文件放在同一个文件夹中，例如~/Code/Decompile 1.2 环境搭建1.2.1 配置环境变量 执行 open ~/.bash_profile ，配置环境变量和alias：  1234export PATH=$&amp;#123;PATH&amp;#125;:~/Documents/Code/Decompilealia">
+
+
+
+
+
+
+  <link rel="canonical" href="http://whatsid.me/2020/11/06/android-decompile/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Android反编译的一些姿势 | Now Or Never</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Now Or Never</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://whatsid.me/2020/11/06/android-decompile/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WhatsID">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Now Or Never">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android反编译的一些姿势
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-11-06 15:14:36 / 修改时间：15:15:16" itemprop="dateCreated datePublished" datetime="2020-11-06T15:14:36+08:00">2020-11-06</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-反编译"><a href="#1-反编译" class="headerlink" title="1. 反编译"></a>1. 反编译</h2><h3 id="1-1-工具下载"><a href="#1-1-工具下载" class="headerlink" title="1.1 工具下载"></a>1.1 工具下载</h3><ul>
+<li><a href="https://ibotpeaches.github.io/Apktool/install" target="_blank" rel="noopener">apktool</a></li>
+<li><a href="https://github.com/pxb1988/dex2jar/releases/" target="_blank" rel="noopener">dex2jar</a></li>
+<li><a href="http://java-decompiler.github.io/" target="_blank" rel="noopener">jd-gui</a></li>
+</ul>
+<p>将上述三个文件放在同一个文件夹中，例如~/Code/Decompile</p>
+<h3 id="1-2-环境搭建"><a href="#1-2-环境搭建" class="headerlink" title="1.2 环境搭建"></a>1.2 环境搭建</h3><h4 id="1-2-1-配置环境变量"><a href="#1-2-1-配置环境变量" class="headerlink" title="1.2.1 配置环境变量"></a>1.2.1 配置环境变量</h4><ul>
+<li>执行 <code>open ~/.bash_profile</code> ，配置环境变量和alias：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$&#123;PATH&#125;:~/Documents/Code/Decompile</span><br><span class="line"></span><br><span class="line">alias dex2jar=&apos;d2j-dex2jar.sh&apos;</span><br><span class="line">alias jd-gui=&apos;java -jar /Users/WhatsID/Documents/Code/Decompile/jd-gui-osx/jd-gui-1.6.6.jar&apos;</span><br></pre></td></tr></table></figure>
+<h4 id="1-2-2-验证是否安装成功"><a href="#1-2-2-验证是否安装成功" class="headerlink" title="1.2.2 验证是否安装成功"></a>1.2.2 验证是否安装成功</h4><p>执行 <code>apktool -v</code> ，如果输出版本号则证明配置成功</p>
+<p>执行 <code>jd-gui</code>，如果打开jd-gui的窗口则证明配置成功</p>
+<h3 id="1-3-工具使用"><a href="#1-3-工具使用" class="headerlink" title="1.3 工具使用"></a>1.3 工具使用</h3><h4 id="1-3-1-反编译"><a href="#1-3-1-反编译" class="headerlink" title="1.3.1 反编译"></a>1.3.1 反编译</h4><h5 id="反编译资源"><a href="#反编译资源" class="headerlink" title="反编译资源"></a>反编译资源</h5><p>执行命令 <code>apktool d [apk文件]</code>, 会在当前目录下生成apk文件名的文件夹，该文件夹中的xml文件可以直接查看。</p>
+<h5 id="反编译代码"><a href="#反编译代码" class="headerlink" title="反编译代码"></a>反编译代码</h5><p><strong>方法1：</strong></p>
+<ol>
+<li><code>apktool d -s apk_file.apk</code></li>
+<li>apk_file文件夹中会看到classesN.dex</li>
+</ol>
+<p><strong>方法2：</strong></p>
+<ol>
+<li>将apk_file.apk重命名为 apk_file.zip：<code>mv apk_file.apk apk_file.zip</code></li>
+<li>解压zip文件到out文件夹中 <code>mkdir out; unzip apk_file.zip -d out</code></li>
+<li>out文件夹中会看到classesN.dex</li>
+</ol>
+<h4 id="1-3-2-查看java代码"><a href="#1-3-2-查看java代码" class="headerlink" title="1.3.2 查看java代码"></a>1.3.2 查看java代码</h4><ol>
+<li>执行 <code>dex2jar classesN.dex</code>,会在当前目录生成classesN-dex2jar.jar</li>
+<li>将该文件拖到jd-gui的窗口中即可查看java代码</li>
+</ol>
+<h3 id="1-4-注意事项"><a href="#1-4-注意事项" class="headerlink" title="1.4 注意事项"></a>1.4 注意事项</h3><ul>
+<li>打开jar文件时jd-gui可能会出现 Invalid input fileloader错误，在命令行输入：sudo chmod +xr classes-dex2jar.jar即可解决</li>
+<li>遇到 Permission denied，需要给当前脚本授权，例如：<code>chmod +x apktool</code></li>
+</ul>
+<h2 id="2-令App可调试"><a href="#2-令App可调试" class="headerlink" title="2. 令App可调试"></a>2. 令App可调试</h2><ol>
+<li><a href="https://github.com/WindySha/ManifestEditor/releases/download/v1.0.2/ManifestEditor-1.0.2.jar" target="_blank" rel="noopener">工具下载</a></li>
+<li>环境配置，将工具同样放在Decompile文件夹下，并配置alias为manifest-editor</li>
+<li>执行 <code>apktool d -s -r apk_file.apk</code>, 生成apk_file文件夹</li>
+<li>新增debuggable=true的属性：<code>manifest-editor apk_file/AndroidManifest.xml -d 1</code></li>
+<li>上一步会在apk_file文件夹生成AndroidManifest-new.xml，将其重命名为AndroidManifest.xml并覆盖源文件: <code>mv apk_file/AndroidManifest-new.xml apk_file/AndroidManifest.xml</code></li>
+<li>回编代码：<code>apktool b apk_file -o apk_file_unsigned.apk</code></li>
+<li>重签名：<code>jarsigner -verbose -keystore keystore_path -signedjar apk_file_signed.apk apk_file_unsigned.apk keystore_alias</code></li>
+<li>安装新生成的apk文件：<code>apk install apk_file_signed.apk</code></li>
+<li>完成</li>
+</ol>
+<p>更多manifest-editor命令可以看<a href="https://github.com/WhatsID/ManifestEditor" target="_blank" rel="noopener">这里</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;margin:100px 0 20px 0;">------------------------ 本文结束 ------------------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/15/qing-gan-2020/" rel="next" title="青甘环线自驾小记">
+                <i class="fa fa-chevron-left"></i> 青甘环线自驾小记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">WhatsID</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-反编译"><span class="nav-number">1.</span> <span class="nav-text">1. 反编译</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-工具下载"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 工具下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-环境搭建"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1-配置环境变量"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.2.1 配置环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-2-验证是否安装成功"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2.2 验证是否安装成功</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-工具使用"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 工具使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-1-反编译"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.3.1 反编译</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#反编译资源"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">反编译资源</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#反编译代码"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">反编译代码</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-2-查看java代码"><span class="nav-number">1.3.2.</span> <span class="nav-text">1.3.2 查看java代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-注意事项"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-令App可调试"><span class="nav-number">2.</span> <span class="nav-text">2. 令App可调试</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WhatsID</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
