@@ -39,7 +39,7 @@ Markdown针对链接和图片的处理也比较简单，可以使用下面的语
 ```
 以上标记显示效果如下：
 [点击跳转至Google](https://www.google.com)
-![图片](http://e.hiphotos.baidu.com/image/pic/item/55e736d12f2eb93867023248df628535e5dd6f19.jpg)
+![图片](https://cdn.pixabay.com/photo/2021/01/21/09/58/grebe-5936866_1280.jpg)
 
 *注： 引用图片和链接的唯一区别就是在最前方添加一个感叹号。*
 
@@ -160,7 +160,7 @@ ___这里是加粗并斜体___
 
 两个回车结束引用,不在引用范围内了!
 
-## 1.10 修改图片
+## 1.10 插入图片
 ### 1.10.1 修改图片尺寸
 ---
 在 markdown 直接使用提供的语法引入图片是无法设置大小的，所以我们需要用到 html 的 img 标签。
@@ -172,20 +172,20 @@ ___这里是加粗并斜体___
 例如：
 
 ```
-<img width="267px" alt="这里是一张图片" src="http://e.hiphotos.baidu.com/image/pic/item/55e736d12f2eb93867023248df628535e5dd6f19.jpg"/>
+<img width="267px" alt="这里是一张图片" src="https://cdn.pixabay.com/photo/2021/01/21/09/58/grebe-5936866_1280.jpg"/>
 ```
 效果如下：
-<img width="267px" alt="这里是一张图片" src="http://e.hiphotos.baidu.com/image/pic/item/55e736d12f2eb93867023248df628535e5dd6f19.jpg"/>
+<img width="267px" alt="这里是一张图片" src="https://cdn.pixabay.com/photo/2021/01/21/09/58/grebe-5936866_1280.jpg"/>
 
 ### 1.10.2 设置图片居中
 ---
 在 markdown 设置图片居中是需要通过 div 来控制的。
 
 ```
-<div align=center><img width="267px" alt="这里是一张图片" src="http://e.hiphotos.baidu.com/image/pic/item/55e736d12f2eb93867023248df628535e5dd6f19.jpg"/></div>
+<div align=center><img width="267px" alt="这里是一张图片" src="https://cdn.pixabay.com/photo/2021/01/21/09/58/grebe-5936866_1280.jpg"/></div>
 ```
 效果如下：
-<div align=center><img width="267px" alt="这里是一张图片" src="http://e.hiphotos.baidu.com/image/pic/item/55e736d12f2eb93867023248df628535e5dd6f19.jpg"/></div>
+<div align=center><img width="267px" alt="这里是一张图片" src="https://cdn.pixabay.com/photo/2021/01/21/09/58/grebe-5936866_1280.jpg"/></div>
 
 ## 1.11 代码块
 ### 1.11.1 插入代码块
@@ -716,6 +716,62 @@ xxxxxxxxxxxxxxxxxxxxxxxxxx
 {% blockquote @余秀华 http://blog.sina.com.cn/u/1634106437 %}
 有时候，“爱国”，是一个空洞的词语。更多的人是在言语里，在诗歌里”爱国“，他们没有一点点实际行动，甚至充满抱怨。
 {% endblockquote %}
+
+## 1.19 插入视频
+
+### 1.19.1 使用 `video` 标签插入本地视频
+```
+<video width="480" height="320" controls>
+<source src="movie.mp4">
+</video>
+```
+展示效果如下：
+<video width="480" height="320" controls>
+<source src="movie.mp4">
+</video>
+
+### 1.19.2 使用 `iframe` 标签插入网络视频
+```
+<iframe
+    height=498 width=510
+    src="https://player.bilibili.com/player.html?aid=39807850&cid=69927212&page=1"
+    frameborder=0 allowfullscreen>
+</iframe>
+```
+展示效果如下：
+<iframe
+    height=498 width=510
+    src="https://player.bilibili.com/player.html?aid=39807850&cid=69927212&page=1"
+    frameborder=0 allowfullscreen>
+</iframe>
+
+### 1.19.3 使用 `iframe` 标签插入手机端兼容的网络视频
+```
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="https://player.bilibili.com/player.html?aid=39807850&cid=69927212&page=1" scrolling="no" border="0" 
+frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; 
+height: 100%; left: 0; top: 0;" /></div>
+```
+展示效果如下：
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="https://player.bilibili.com/player.html?aid=39807850&cid=69927212&page=1" scrolling="no" border="0" 
+frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; 
+height: 100%; left: 0; top: 0;" /></div>
+
+
+## 1.20 插入音频
+
+### 1.20.1 使用 `iframe` 标签插入本地音频
+```
+<iframe frameborder="yes" border="0" width=300 height=150 src="music.mp3"></iframe>
+```
+展示效果如下：
+<iframe frameborder="yes" border="0" width=300 height=150 src="music.mp3"></iframe>
+
+### 1.20.2  使用 `iframe` 标签插入网络音频
+```
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=387607&auto=0&height=66"></iframe>
+```
+展示效果如下：
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=387607&auto=0&height=66"></iframe>
 
 ---
 ---
