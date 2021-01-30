@@ -721,14 +721,18 @@ xxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ### 1.19.1 使用 `video` 标签插入本地视频
 ```
+<div align=center>
 <video width="480" height="320" controls>
 <source src="movie.mp4">
 </video>
+</div>
 ```
 展示效果如下：
+<div align=center>
 <video width="480" height="320" controls>
 <source src="movie.mp4">
 </video>
+</div>
 
 ### 1.19.2 使用 `iframe` 标签插入网络视频
 ```
