@@ -823,12 +823,15 @@ categories:
 ---
 ---
 <br />
+
 # 3 自定义NexT样式
 这里仅限于使用主题为NexT的情况，自定义其他主题请自行Google。
+
 ## 3.1 修改分隔线样式
+
 ---
 默认的分隔线样式为
-{% asset_img default_divider.png %}
+![](default_divider.png)
 看起来不太美观，打开`themes/next/source/css/_common/scaffolding/base.styl`文件，找到 hr 区块，删除`background-image`相关即可。
 
 ## 3.2 自定义其他样式
@@ -964,6 +967,7 @@ date: 2019-12-02 09:12:49
 按照注释，删掉 `border-bottom` 一行即可。
 
 <br />
+
 # 参考链接
 ---
 
