@@ -1,6 +1,5 @@
-hexo generate
-cp -R public/* ./blog/deploy/WhatsID.github.io
-cd ./blog/deploy/WhatsID.github.io
-git add .
-git commit -m "update article"
-git push origin master
+#!/usr/bin/env bash
+set -euo pipefail
+
+cd "$(dirname "$0")"
+exec npm run deploy
