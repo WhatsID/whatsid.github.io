@@ -88,7 +88,7 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   - type: git
-    repo: https://github.com/WhatsID/whatsid.github.io.git
+    repo: git@github.com:WhatsID/whatsid.github.io.git
     branch: master
   # - type: git
   #   repo: https://github.com/WhatsID/whatsid.github.io.git
